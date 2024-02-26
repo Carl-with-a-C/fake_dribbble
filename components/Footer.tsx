@@ -73,7 +73,7 @@ const Footer = () => {
       <div className="flexBetween footer_copyright mt-8">
         <p>@2024 Buztek. All Rights Reserved</p>
         <p className="text-gray">
-          <span className="text-black font-semibold">10,214</span>projects
+          <span className="text-black font-semibold">10,214 </span>projects
           submitted
         </p>
       </div>
