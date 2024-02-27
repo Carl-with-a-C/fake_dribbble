@@ -2,6 +2,21 @@ import { graph, auth, config } from "@grafbase/sdk";
 
 const g = graph.Standalone();
 
+const User = g.type("User", {
+  id: g.id(),
+  first_name: g.string(),
+  last_name: g.string(),
+  full_name: g.string(),
+  email: g.email(),
+  avatarUrl: g.url(),
+  description: g.string().optional(),
+  githubUrl: g.url().optional(),
+  linkedinUrl: g.url().optional(),
+  // projects: g
+  //   .relation(() => Project)
+  //   .list()
+  //   .optional(),
+});
 const Project = () => {
   return g.type("Project", {
     title: g.string(),
@@ -13,17 +28,6 @@ const Project = () => {
     createdBy: g.ref(User),
   });
 };
-
-const User = g.type("User", {
-  name: g.string(),
-  id: g.id(),
-  email: g.email(),
-  avatarUrl: g.url(),
-  description: g.string().optional(),
-  githubUrl: g.url().optional(),
-  linkedinUrl: g.url().optional(),
-  // projects: g.ref(Project).list().optional(),
-});
 
 export default config({
   graph: g,
